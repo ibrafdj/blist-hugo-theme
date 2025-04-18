@@ -60,7 +60,7 @@
     </h5>
     {{ end }}
 
-    {{ if (or .Site.Params.toc .Params.toc) }}
+    {{ if (and .Site.Params.toc (ne .Params.toc false)) }}
     {{- partial "toc.html" . -}}
     {{ end }}
 
