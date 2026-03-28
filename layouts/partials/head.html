@@ -5,7 +5,7 @@
   <link rel="icon" href="{{ if (isset .Site.Params "favicon") }}{{ .Site.Params.favicon }}{{ else }}/favicon.ico{{ end }}">
 
   <title>
-  {{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}
+  {{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Params.homeTitle }}
   </title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}" />
   {{- if .Keywords }}
@@ -55,4 +55,6 @@
   {{ if gt (len .Site.Languages) 1}}
   <meta name="lang" content="{{ .Site.Language }}" />
   {{ end }}
+  
+  {{ template "_internal/google_analytics.html" . }}
 </head>

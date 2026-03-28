@@ -1,13 +1,28 @@
 {{ define "main" }}
   {{- partial "intro.html" . -}}
-  {{ $frontBundle := .Site.Params.frontBundle | default "blog" }}
-  <div class="container p-6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
-    {{ range first 6 (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle)  }}
+
+  <section class="max-w-ibrafdj mx-auto">
+  {{/*  Intro  */}}
+  {{/*  <div class="container px-6 pt-6 mb-8">
+    <h1 class="mb-2 text-3xl font-bold capitalize">{{ "Hi, I'm Ibrahim!" }}</h1>
+    <p class="text-md lg:text-lg line-height">
+      I build underwater robots using my expertise in Electrical, Software, and Marine engineering. <br> 
+      I have been researching and developing underwater robotics systems for 6-years and has 8-days of experience in deploying Autonomous Underwater Vehicles (AUVs) at sea.
+    </p>
+  </div>  */}}
+
+  {{/*  Project List  */}}
+  <div class="container px-6 pt-6">
+    <h1 class="mb-2 text-3xl font-bold capitalize">{{ "projects" }}</h1>
+    <p class="text-md lg:text-lg">Previous work I've done</p>
+  </div>
+  <div class="container p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
+    {{ range first 6 (where .Site.RegularPages.ByDate.Reverse "Type" "project")  }}
       {{- partial "blog-card.html" . -}}
     {{ end }}
   </div>
 
-  {{ if gt (len (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle)) 6 }}
+  {{ if gt (len (where .Site.RegularPages.ByDate.Reverse "Type" "project")) 6 }}
   <div class="text-center mb-8">
     <a class="px-8 py-3 rounded transition-colors {{ .Site.Params.ascentColor | default "bg-pink-50" }}
       text-gray-500 hover:text-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:text-white"
@@ -16,6 +31,29 @@
     </a>
   </div>
   {{ end }}
+
+  {{/*  BLOG LIST  */}}
+  <div class="container px-6 pt-6">
+    <h1 class="mb-2 text-3xl font-bold capitalize">{{ "blog" }}</h1>
+    <p class="text-md lg:text-lg">Recording my journey in English and Indonesian</p>
+  </div>
+  <div class="container p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
+    {{ range first 6 (where .Site.RegularPages.ByDate.Reverse "Type" "blog")  }}
+      {{- partial "blog-card.html" . -}}
+    {{ end }}
+  </div>
+
+  {{ if gt (len (where .Site.RegularPages.ByDate.Reverse "Type" "blog")) 6 }}
+  <div class="text-center mb-8">
+    <a class="px-8 py-3 rounded transition-colors {{ .Site.Params.ascentColor | default "bg-pink-50" }}
+      text-gray-500 hover:text-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:text-white"
+      href="{{ (index (.Site.Menus.main) 0).URL | absLangURL }}" lang="{{ .Lang }}">
+      {{ i18n "morePosts" }}
+    </a>
+  </div>
+  {{ end }}
+
+  </section>
 
   {{- partial "social.html" . -}}
 {{ end }}

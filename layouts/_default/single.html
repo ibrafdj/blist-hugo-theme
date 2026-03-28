@@ -9,6 +9,11 @@
     <div class="absolute top-4 right-8 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white px-2 py-0.5">
       {{ $datestr }}
     </div>
+    {{ if .Params.language }}
+      <div class="absolute capitalize top-4 left-8 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white px-2 py-0.5">
+        {{ .Params.language }}
+      </div>
+    {{ end }}
     {{ end }}
   </div>
   {{ end }}
@@ -60,7 +65,7 @@
     </h5>
     {{ end }}
 
-    {{ if (or .Site.Params.toc .Params.toc) }}
+    {{ if (and .Site.Params.toc (ne .Params.toc false)) }}
     {{- partial "toc.html" . -}}
     {{ end }}
 

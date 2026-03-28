@@ -1,55 +1,17 @@
-/* Custom Styles */
+/* Import Google Fonts: Inter for body, Plus Jakarta Sans for headings */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap');
+
+/* Body text uses Inter */
 body {
   font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
 }
 
-/* Fonts */
-
-/* inter-300 - latin */
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 300;
-  src: url("/fonts/inter-v3-latin-300.eot"); /* IE9 Compat Modes */
-  src: local(""),
-    url("/fonts/inter-v3-latin-300.eot?#iefix") format("embedded-opentype"),
-    /* IE6-IE8 */ url("/fonts/inter-v3-latin-300.woff2") format("woff2"),
-    /* Super Modern Browsers */ url("/fonts/inter-v3-latin-300.woff")
-      format("woff"),
-    /* Modern Browsers */ url("/fonts/inter-v3-latin-300.ttf")
-      format("truetype"),
-    /* Safari, Android, iOS */ url("/fonts/inter-v3-latin-300.svg#Inter")
-      format("svg"); /* Legacy iOS */
-}
-/* inter-500 - latin */
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  src: url("/fonts/inter-v3-latin-500.eot"); /* IE9 Compat Modes */
-  src: local(""),
-    url("/fonts/inter-v3-latin-500.eot?#iefix") format("embedded-opentype"),
-    /* IE6-IE8 */ url("/fonts/inter-v3-latin-500.woff2") format("woff2"),
-    /* Super Modern Browsers */ url("/fonts/inter-v3-latin-500.woff")
-      format("woff"),
-    /* Modern Browsers */ url("/fonts/inter-v3-latin-500.ttf")
-      format("truetype"),
-    /* Safari, Android, iOS */ url("/fonts/inter-v3-latin-500.svg#Inter")
-      format("svg"); /* Legacy iOS */
-}
-/* inter-700 - latin */
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  src: url("/fonts/inter-v3-latin-700.eot"); /* IE9 Compat Modes */
-  src: local(""),
-    url("/fonts/inter-v3-latin-700.eot?#iefix") format("embedded-opentype"),
-    /* IE6-IE8 */ url("/fonts/inter-v3-latin-700.woff2") format("woff2"),
-    /* Super Modern Browsers */ url("/fonts/inter-v3-latin-700.woff")
-      format("woff"),
-    /* Modern Browsers */ url("/fonts/inter-v3-latin-700.ttf")
-      format("truetype"),
-    /* Safari, Android, iOS */ url("/fonts/inter-v3-latin-700.svg#Inter")
-      format("svg"); /* Legacy iOS */
+/* Headings use Plus Jakarta Sans */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;        /* Stronger weight for impact */
+  letter-spacing: 0.5px;   /* Optional: adds a bit of breathing room */
+  line-height: 1.2;
 }
