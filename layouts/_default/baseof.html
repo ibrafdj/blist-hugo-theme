@@ -9,6 +9,7 @@
     {{- partial "footer.html" . -}}
   </body>
 
+  {{/*  Redirect old urls no new urls  */}}
   <script>
     if (window.location.pathname.startsWith("/en/blog/")) {
         var newPath = window.location.pathname.replace("/en/blog/", "/blog/");

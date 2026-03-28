@@ -1,14 +1,26 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
+/>
+
 <div class="p-2">
 <a href="{{ .Permalink }}">
   {{ if .Params.thumbnail }}
   <div class="relative">
-    <img src="{{ .Params.thumbnail }}" alt="{{ .Params.title }}" class="rounded-lg shadow-sm w-full h-52 object-cover" />
+    <img src="{{ .Params.thumbnail }}" alt="{{ .Params.title }}" class="rounded-lg shadow w-full h-52 object-cover" />
     {{ if .Params.language }}
-      <div class="absolute top-4 left-4 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white text-sm px-2 py-0.5">
+      <div class="absolute top-4 left-4">
+        {{ if eq .Params.language "indonesian" }}
+          <span class="fi fi-id shadow"> 
+        {{ else if eq .Params.language "english" }}
+          <span class="fi fi-gb shadow"> 
+        {{ end }}
+      </div>
+      {{/*  <div class="absolute top-4 left-4 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white text-sm px-2 py-0.5">
         {{ if eq .Params.language "indonesian" }} ID 
         {{ else if eq .Params.language "english" }} EN
         {{ end }}
-      </div>
+      </div>  */}}
     {{ end }}
 
     {{ if not (or (or .Site.Params.hideMeta .Params.hideMeta) false) }}
@@ -18,8 +30,8 @@
     {{ end }}
   </div>
   {{ end }}
-  <div class="my-2 text-xl font-semibold">{{ .Params.title }}</div>
-  <div>{{ .Params.description }}</div>
+  <h1 class="my-2 text-xl font-semibold">{{ .Params.title }}</h1>
+  <div class="font-light">{{ .Params.description }}</div>
 </a>
 {{ if not (or (or .Site.Params.hideOtherLanguages .Params.hideOtherLanguages) false) }}
   {{ if .IsTranslated -}}
