@@ -4,10 +4,10 @@
 />
 
 <div class="p-2">
-<a href="{{ .Permalink }}">
+<a href="{{ .Permalink }}" class="group">
   {{ if .Params.thumbnail }}
-  <div class="relative">
-    <img src="{{ .Params.thumbnail }}" alt="{{ .Params.title }}" class="rounded-lg shadow w-full h-52 object-cover" />
+  <div class="relative overflow-hidden rounded-lg" style="display: inline-block; width: 100%;">
+    <img src="{{ .Params.thumbnail }}" alt="{{ .Params.title }}" class="rounded-lg shadow w-full h-52 object-cover transition-transform duration-700 ease-out md:group-hover:scale-105" />
     {{ if .Params.language }}
       <div class="absolute top-4 left-4">
         {{ if eq .Params.language "indonesian" }}
@@ -30,8 +30,8 @@
     {{ end }}
   </div>
   {{ end }}
-  <h1 class="my-2 text-xl font-semibold">{{ .Params.title }}</h1>
-  <div class="font-light">{{ .Params.description }}</div>
+  <h1 class="my-2 text-md lg:text-xl font-semibold">{{ .Params.title }}</h1>
+  <div class="font-light text-sm lg:text-md">{{ .Params.description }}</div>
 </a>
 {{ if not (or (or .Site.Params.hideOtherLanguages .Params.hideOtherLanguages) false) }}
   {{ if .IsTranslated -}}

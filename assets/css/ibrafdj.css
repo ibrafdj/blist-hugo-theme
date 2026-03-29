@@ -1,3 +1,48 @@
 .max-w-ibrafdj {
     max-width: 80rem;
 }
+
+/* Highlight Card Content Toggle */
+
+/* Image brightening/darkening based on color scheme */
+@media (prefers-color-scheme: light) {
+    [data-highlight-content].active img {
+        filter: brightness(1.6);
+    }
+    [data-highlight-content].active .highlight-content-text {
+        color: #000000;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    [data-highlight-content].active img {
+        filter: brightness(0.3);
+    }
+    [data-highlight-content].active .highlight-content-text {
+        color: #ffffff;
+    }
+}
+
+/* Hide overlay when active */
+[data-highlight-content].active .highlight-card-overlay {
+    opacity: 0;
+}
+
+/* Hide header when active */
+[data-highlight-content].active .highlight-card-header {
+    opacity: 0;
+}
+
+/* Show content when active */
+[data-highlight-content].active .highlight-card-content {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Content text styling */
+.highlight-card-content .text-sm {
+    max-width: 90%;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
